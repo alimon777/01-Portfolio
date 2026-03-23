@@ -1,61 +1,112 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { motion } from "motion/react";
 import { STATS } from "@/lib/portfolio-data";
 
-export const HeroSection = () => (
-  <section className="flex flex-col px-4 sm:px-8 pt-28 sm:pt-32 pb-16 sm:pb-20 max-w-7xl mx-auto">
-    <div className="flex items-center gap-2 mb-7">
-      <span className="size-2 rounded-full bg-[#4ae176] inline-block" />
-      <span className="text-[#908fa0] font-mono text-xs tracking-[0.12em] uppercase">
-        Software Engineer II · Kochi, India
-      </span>
-    </div>
+const CYCLING_WORDS = [
+  "Powered by AI.",
+  "Built for Scale.",
+  "Engineered for Impact.",
+  "Driven by Code.",
+];
 
-    <h1 className="text-[clamp(2.5rem,5.5vw,5rem)] font-bold tracking-[-0.02em] leading-[1.08] mb-6 max-w-[820px]">
-      Building Scalable Systems
-      <br />
-      <span className="text-[#c0c1ff]">Powered by AI.</span>
-    </h1>
+export const HeroSection = () => {
+  const [index, setIndex] = useState(0);
 
-    <p className="text-[#c7c4d7] text-lg leading-[1.7] max-w-[540px] mb-10">
-      Software Engineer with 2+ years delivering enterprise applications,
-      agentic AI pipelines, and cloud-native backends using Java, Python, and
-      Spring Boot.
-    </p>
+  useEffect(() => {
+    const id = setTimeout(() => {
+      setIndex((i) => (i + 1) % CYCLING_WORDS.length);
+    }, 2600);
+    return () => clearTimeout(id);
+  }, [index]);
 
-    <div className="flex items-center gap-4 mb-20 flex-wrap">
-      <a
-        href="#projects"
-        className="bg-[#c0c1ff] text-[#1000a9] py-3 px-6 rounded-[6px] font-semibold no-underline flex items-center gap-1.5 text-[0.9375rem] hover:opacity-90 transition-opacity"
+  return (
+    <section className="flex flex-col px-4 sm:px-8 pt-28 sm:pt-32 pb-16 sm:pb-20 max-w-7xl mx-auto">
+      <div className="flex items-center gap-2 mb-7">
+        <span className="size-2 rounded-full inline-block" style={{ background: "var(--c-green)" }} />
+        <span className="font-mono text-xs tracking-[0.12em] uppercase" style={{ color: "var(--c-fg-muted)" }}>
+          Software Engineer II · Kochi, India
+        </span>
+      </div>
+
+      {/* Line 1: static */}
+      <h1 className="text-[clamp(2.5rem,5.5vw,5rem)] font-bold tracking-[-0.02em] leading-[1.08] max-w-[820px]">
+        Building Scalable Systems
+      </h1>
+
+      {/* Line 2: animated cycling words — block-level so full width avoids clipping */}
+      <div
+        className="relative overflow-hidden mb-6"
+        style={{ height: "1.15em", fontSize: "clamp(2.5rem,5.5vw,5rem)", lineHeight: 1.08 }}
       >
-        Explore Portfolio
-        <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
-      </a>
-      <a
-        href="https://github.com/alimon777"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-[#c7c4d7] py-3 px-6 rounded-[6px] border border-[rgba(70,69,84,0.5)] no-underline text-sm hover:border-[rgba(70,69,84,0.8)] transition-colors"
-      >
-        GitHub
-      </a>
-      <a
-        href="https://linkedin.com/in/alimon-na"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-[#c7c4d7] py-3 px-6 rounded-[6px] border border-[rgba(70,69,84,0.5)] no-underline text-sm hover:border-[rgba(70,69,84,0.8)] transition-colors"
-      >
-        LinkedIn
-      </a>
-    </div>
+        {CYCLING_WORDS.map((word, i) => (
+          <motion.span
+            key={word}
+            className="absolute left-0 top-0 font-bold whitespace-nowrap"
+            style={{ color: "var(--c-accent)" }}
+            initial={{ opacity: 0, y: "110%" }}
+            animate={
+              index === i
+                ? { y: "0%", opacity: 1 }
+                : { y: index > i ? "-110%" : "110%", opacity: 0 }
+            }
+            transition={{ type: "spring", stiffness: 55, damping: 14 }}
+          >
+            {word}
+          </motion.span>
+        ))}
+      </div>
 
-    <div className="grid grid-cols-4 gap-8 border-t border-[rgba(70,69,84,0.35)] pt-8">
-      {STATS.map((s) => (
-        <div key={s.label}>
-          <div className="text-[2rem] font-bold text-[#c0c1ff] font-mono tracking-[-0.02em]">
-            {s.value}
+      <p className="text-lg leading-[1.7] max-w-[540px] mb-10" style={{ color: "var(--c-fg-secondary)" }}>
+        Software Engineer with 2+ years delivering enterprise applications,
+        agentic AI pipelines, and cloud-native backends using Java, Python, and
+        Spring Boot.
+      </p>
+
+      <div className="flex items-center gap-4 mb-20 flex-wrap">
+        <a
+          href="#projects"
+          className="btn-primary py-3 px-6 rounded-[6px] no-underline flex items-center gap-1.5 text-[0.9375rem]"
+        >
+          Explore Portfolio
+          <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+        </a>
+        <a
+          href="https://github.com/alimon777"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="py-3 px-6 rounded-[6px] border no-underline text-sm transition-colors"
+          style={{ color: "var(--c-fg-secondary)", borderColor: "var(--c-border-strong)" }}
+          onMouseEnter={(e) => (e.currentTarget.style.borderColor = "var(--c-border-hover)")}
+          onMouseLeave={(e) => (e.currentTarget.style.borderColor = "var(--c-border-strong)")}
+        >
+          GitHub
+        </a>
+        <a
+          href="https://linkedin.com/in/alimon-na"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="py-3 px-6 rounded-[6px] border no-underline text-sm transition-colors"
+          style={{ color: "var(--c-fg-secondary)", borderColor: "var(--c-border-strong)" }}
+          onMouseEnter={(e) => (e.currentTarget.style.borderColor = "var(--c-border-hover)")}
+          onMouseLeave={(e) => (e.currentTarget.style.borderColor = "var(--c-border-strong)")}
+        >
+          LinkedIn
+        </a>
+      </div>
+
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 border-t pt-8" style={{ borderColor: "var(--c-border)" }}>
+        {STATS.map((s) => (
+          <div key={s.label}>
+            <div className="text-[2rem] font-bold font-mono tracking-[-0.02em]" style={{ color: "var(--c-accent)" }}>
+              {s.value}
+            </div>
+            <div className="text-sm mt-1" style={{ color: "var(--c-fg-muted)" }}>{s.label}</div>
           </div>
-          <div className="text-[#908fa0] text-sm mt-1">{s.label}</div>
-        </div>
-      ))}
-    </div>
-  </section>
-);
+        ))}
+      </div>
+    </section>
+  );
+};
+

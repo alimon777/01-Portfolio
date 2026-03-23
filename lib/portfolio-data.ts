@@ -15,7 +15,7 @@ export const EXPERTISE_CARDS: ExpertiseCardItem[] = [
   {
     icon: "dns",
     title: "Backend & Microservices",
-    desc: "Building and maintaining high-availability enterprise microservices with Java, Spring Boot, and REST APIs, integrated with AI-driven automation tooling.",
+    desc: "Building high-performance async services with FastAPI, Celery, and Redis for distributed task queuing—powering scalable backends integrated with AI-driven automation pipelines.",
   },
   {
     icon: "cloud",
@@ -63,7 +63,7 @@ export const TIMELINE: TimelineItem[] = [
   {
     role: "Software Engineer II",
     period: "Oct 2025 — PRES",
-    company: "UST, Trivandrum",
+    company: "UST, Kochi",
     desc: "Engineered a high-performance code scanning tool to identify security vulnerabilities. Designed and implemented a robust data pipeline to process and index security data into a FAISS vector database, enabling rapid, context-aware threat analysis and automated fix suggestions.",
   },
   {
