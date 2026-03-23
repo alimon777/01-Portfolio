@@ -28,7 +28,7 @@ export const CtaSection = () => (
             href="https://linkedin.com/in/alimon-na"
             target="_blank"
             rel="noopener noreferrer"
-            className="py-3.5 px-3 sm:px-6 rounded-[6px] border no-underline text-sm transition-colors flex items-center gap-2"
+            className="btn-outline py-3.5 px-3 sm:px-6 rounded-[6px] border no-underline text-sm flex items-center gap-2"
             style={{ color: "var(--c-fg-secondary)", borderColor: "var(--c-border-strong)" }}
             aria-label="LinkedIn"
           >
@@ -39,7 +39,7 @@ export const CtaSection = () => (
             href="https://github.com/alimon777"
             target="_blank"
             rel="noopener noreferrer"
-            className="py-3.5 px-3 sm:px-6 rounded-[6px] border no-underline text-sm transition-colors flex items-center gap-2"
+            className="btn-outline py-3.5 px-3 sm:px-6 rounded-[6px] border no-underline text-sm flex items-center gap-2"
             style={{ color: "var(--c-fg-secondary)", borderColor: "var(--c-border-strong)" }}
             aria-label="GitHub"
           >

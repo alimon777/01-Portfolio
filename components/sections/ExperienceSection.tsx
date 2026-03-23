@@ -10,7 +10,7 @@ export const ExperienceSection = () => (
     <div>
       {TIMELINE.map((job) => (
         <div
-          key={job.company}
+          key={`${job.company}-${job.role}`}
           className="grid grid-cols-1 sm:grid-cols-[200px_1fr] gap-4 sm:gap-12 py-10 border-t"
           style={{ borderColor: "var(--c-border)" }}
         >

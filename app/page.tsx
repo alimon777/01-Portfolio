@@ -7,6 +7,7 @@ import { ToolkitSection } from "@/components/sections/ToolkitSection";
 import { CtaSection } from "@/components/sections/CtaSection";
 import { FooterSection } from "@/components/sections/FooterSection";
 import { AnimatedLinesBg } from "@/components/ui/AnimatedLinesBg";
+import { FadeIn } from "@/components/ui/FadeIn";
 
 export default function Home() {
   return (
@@ -19,13 +20,13 @@ export default function Home() {
       {/* All content above background */}
       <div className="relative" style={{ zIndex: 1 }}>
         <NavBar />
-        <HeroSection />
-        <ExpertiseSection />
-        <ProjectsSection />
-        <ExperienceSection />
-        <ToolkitSection />
-        <CtaSection />
-        <FooterSection />
+        <FadeIn><HeroSection /></FadeIn>
+        <FadeIn><ExpertiseSection /></FadeIn>
+        <FadeIn><ProjectsSection /></FadeIn>
+        <FadeIn><ExperienceSection /></FadeIn>
+        <FadeIn><ToolkitSection /></FadeIn>
+        <FadeIn><CtaSection /></FadeIn>
+        <FadeIn><FooterSection /></FadeIn>
       </div>
     </main>
   );

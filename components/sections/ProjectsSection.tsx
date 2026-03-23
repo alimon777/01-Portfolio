@@ -94,25 +94,7 @@ export const ProjectsSection = () => {
           ))}
         </div>
 
-        {/* Mobile controls placed under cards */}
-        <div className="flex gap-2 mt-4 sm:hidden justify-center">
-          <button
-            onClick={() => scroll("prev")}
-            aria-label="Previous projects"
-            className="w-10 h-10 rounded-lg border flex items-center justify-center transition-colors hover:border-[var(--c-border-hover)]"
-            style={{ borderColor: "var(--c-border-strong)", color: "var(--c-fg-muted)" }}
-          >
-            <span className="material-symbols-outlined text-[20px]">chevron_left</span>
-          </button>
-          <button
-            onClick={() => scroll("next")}
-            aria-label="Next projects"
-            className="w-10 h-10 rounded-lg border flex items-center justify-center transition-colors hover:border-[var(--c-border-hover)]"
-            style={{ borderColor: "var(--c-border-strong)", color: "var(--c-fg-muted)" }}
-          >
-            <span className="material-symbols-outlined text-[20px]">chevron_right</span>
-          </button>
-        </div>
+
       </div>
     </section>
   );

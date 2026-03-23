@@ -14,7 +14,7 @@ export const NavBar = () => (
       </div>
       <div className="flex items-center gap-3 sm:gap-6">
         <a href="#expertise" className="hidden sm:block text-sm no-underline transition-colors" style={{ color: "var(--c-fg-secondary)" }}>Expertise</a>
-        <a href="#projects"  className="hidden sm:block text-sm no-underline transition-colors" style={{ color: "var(--c-fg-secondary)" }}>Portfolio</a>
+        <a href="#projects"  className="hidden sm:block text-sm no-underline transition-colors" style={{ color: "var(--c-fg-secondary)" }}>Projects</a>
         <a href="#experience" className="hidden sm:block text-sm no-underline transition-colors" style={{ color: "var(--c-fg-secondary)" }}>Journey</a>
         <a href="#toolkit"  className="hidden sm:block text-sm no-underline transition-colors" style={{ color: "var(--c-fg-secondary)" }}>Toolkit</a>
         <ThemeToggle />

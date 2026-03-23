@@ -105,6 +105,21 @@ body {
   box-shadow: 0 0 24px var(--c-accent-glow);
 }
 
+/* ─── Outlined ghost button (GitHub, LinkedIn etc.) ─── */
+.btn-outline {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease, color 0.3s ease;
+}
+.btn-outline:hover {
+  border-color: var(--c-accent) !important;
+  box-shadow: 0 0 22px var(--c-accent-glow);
+  transform: translateY(-2px) scale(1.02);
+  color: var(--c-accent) !important;
+}
+.btn-outline:active {
+  transform: translateY(0) scale(1);
+  box-shadow: none;
+}
+
 /* ─── Meteor animation ─── */
 .animate-meteor-effect {
   animation: meteor 5s linear infinite;
