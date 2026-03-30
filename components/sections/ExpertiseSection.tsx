@@ -1,8 +1,13 @@
 "use client";
+import dynamic from "next/dynamic";
 import { EXPERTISE_CARDS } from "@/lib/portfolio-data";
 import { SectionLabel } from "@/components/ui/SectionLabel";
-import { GlowingEffect } from "@/components/ui/GlowingEffect";
 import type { ExpertiseCardItem } from "@/types/portfolio";
+
+const GlowingEffect = dynamic(
+  () => import("@/components/ui/GlowingEffect").then((m) => m.GlowingEffect),
+  { ssr: false }
+);
 
 interface ExpertiseCardProps extends ExpertiseCardItem {}
 
